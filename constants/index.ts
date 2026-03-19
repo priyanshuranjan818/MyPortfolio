@@ -1,4 +1,4 @@
-import { FaYoutube, FaFacebook } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 import {
   RxDiscordLogo,
   RxGithubLogo,
@@ -92,17 +92,17 @@ export const SOCIALS = [
   {
     name: "Instagram",
     icon: RxInstagramLogo,
-    link: "https://instagram.com",
-  },
-  {
-    name: "Facebook",
-    icon: FaFacebook,
-    link: "https://facebook.com",
+    link: "https://www.instagram.com/haxx_616/",
   },
   {
     name: "Twitter",
     icon: RxTwitterLogo,
-    link: "https://x.com/_sanidhyy",
+    link: "https://x.com/Haxx__616",
+  },
+  {
+    name: "Linkedin",
+    icon: RxLinkedinLogo,
+    link: "https://www.linkedin.com/in/priyanshu-ranjan-x/",
   },
 ] as const;
 
@@ -308,17 +308,17 @@ export const FOOTER_DATA = [
       {
         name: "Instagram",
         icon: RxInstagramLogo,
-        link: "https://instagram.com",
+        link: "https://www.instagram.com/haxx_616/",
       },
       {
         name: "Twitter",
         icon: RxTwitterLogo,
-        link: "https://x.com/_sanidhyy",
+        link: "https://x.com/Haxx__616",
       },
       {
         name: "Linkedin",
         icon: RxLinkedinLogo,
-        link: "https://linkedin.com",
+        link: "https://www.linkedin.com/in/priyanshu-ranjan-x/",
       },
     ],
   },
