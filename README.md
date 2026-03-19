@@ -70,6 +70,7 @@ space-portfolio/
   |- .gitignore
   |- Dockerfile
   |- eslint.config.mjs
+  |- Jenkinsfile
   |- netlify.toml
   |- next.config.js
   |- package-lock.json
