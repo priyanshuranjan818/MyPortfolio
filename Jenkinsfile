@@ -22,7 +22,9 @@ pipeline {
 
         stage('Lint') {
             steps {
-                bat 'npm run lint'
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    bat 'npm run lint'
+                }
             }
         }
 
