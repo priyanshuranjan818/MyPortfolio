@@ -43,10 +43,10 @@ pipeline {
         stage('Stop Old Container') {
             steps {
                 bat '''
-                    FOR /F "tokens=*" %%i IN ('docker ps -q --filter "name=space-portfolio-app"') DO (
-                        docker stop %%i
-                        docker rm %%i
-                    )
+                    docker stop space-portfolio-app 2>nul
+                    docker rm space-portfolio-app 2>nul
+                    FOR /F "tokens=*" %%i IN ('docker ps -q --filter "publish=3000"') DO docker stop %%i
+                    FOR /F "tokens=*" %%i IN ('docker ps -a -q --filter "publish=3000"') DO docker rm %%i
                     EXIT /B 0
                 '''
             }
@@ -54,7 +54,7 @@ pipeline {
 
         stage('Deploy Container') {
             steps {
-                bat "docker run -d --name space-portfolio-app -p 3000:3000 ${DOCKER_IMAGE}:latest"
+                bat "docker run -d --name space-portfolio-app -p 3000:3000 %DOCKER_IMAGE%:latest"
             }
         }
     }
