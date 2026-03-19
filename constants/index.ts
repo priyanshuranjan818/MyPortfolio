@@ -369,8 +369,4 @@ export const NAV_LINKS = [
     title: "Projects",
     link: "#projects",
   },
-  {
-    title: "Contact",
-    link: "#contact",
-  },
 ] as const;
