@@ -5,6 +5,8 @@ import Link from "next/link";
 
 import { NAV_LINKS, SOCIALS } from "@/constants";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -18,7 +20,7 @@ export const Navbar = () => {
           className="flex items-center"
         >
           <Image
-            src="/logo.png"
+            src={`${basePath}/logo.png`}
             alt="Logo"
             width={70}
             height={70}

@@ -5,6 +5,8 @@ import Image from "next/image";
 
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/lib/motion";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const AboutMe = () => {
   return (
     <section
@@ -63,7 +65,7 @@ export const AboutMe = () => {
           <div className="relative w-64 h-64 md:w-[350px] md:h-[350px] rounded-full overflow-hidden border-4 border-[#7042f88b] shadow-[0_0_30px_rgba(112,66,248,0.3)] flex items-center justify-center p-2 bg-gradient-to-br from-yellow-400 to-orange-500">
             {/* Using a placeholder or the logo as fallback if profile image doesn't exist */}
             <Image
-              src="/logo.png" /* Feel free to change to "/profile.jpg" or similar */
+              src={`${basePath}/logo.png`} /* Feel free to change to "/profile.jpg" or similar */
               alt="Profile Picture"
               width={350}
               height={350}

@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 type SkillDataProviderProps = {
   src: string;
   name: string;
@@ -39,7 +41,7 @@ export const SkillDataProvider = ({
       custom={index}
       transition={{ delay: index * animationDelay }}
     >
-      <Image src={`/skills/${src}`} width={width} height={height} alt={name} />
+      <Image src={`${basePath}/skills/${src}`} width={width} height={height} alt={name} />
     </motion.div>
   );
 };

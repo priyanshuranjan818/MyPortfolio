@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 type ProjectCardProps = {
   src: string;
   title: string;
@@ -22,7 +24,7 @@ export const ProjectCard = ({
       className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]"
     >
       <Image
-        src={src}
+        src={`${basePath}${src}`}
         alt={title}
         width={1000}
         height={1000}

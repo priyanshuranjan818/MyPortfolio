@@ -10,6 +10,8 @@ import {
   slideInFromTop,
 } from "@/lib/motion";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const HeroContent = () => {
   return (
     <motion.div
@@ -62,7 +64,7 @@ export const HeroContent = () => {
         className="w-full h-full flex justify-center items-center"
       >
         <Image
-          src="/hero-bg.svg"
+          src={`${basePath}/hero-bg.svg`}
           alt="work icons"
           height={650}
           width={650}
