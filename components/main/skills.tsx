@@ -8,6 +8,8 @@ import {
   SOFT_SKILLS,
 } from "@/constants";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const Skills = () => {
   return (
     <section
@@ -92,7 +94,7 @@ export const Skills = () => {
             muted
             autoPlay
           >
-            <source src="/videos/skills-bg.webm" type="video/webm" />
+            <source src={`${basePath}/videos/skills-bg.webm`} type="video/webm" />
           </video>
         </div>
       </div>

@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 import Image from "next/image";
 
 import { slideInFromTop } from "@/lib/motion";
@@ -59,7 +61,7 @@ export const Encryption = () => {
           preload="false"
           className="w-full h-auto"
         >
-          <source src="/videos/encryption-bg.webm" type="video/webm" />
+          <source src={`${basePath}/videos/encryption-bg.webm`} type="video/webm" />
         </video>
       </div>
     </div>
