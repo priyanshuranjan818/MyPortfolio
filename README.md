@@ -66,6 +66,7 @@ space-portfolio/
     |-- utils.ts
   |- public/
   |- .dockerignore
+  |- .env.production
   |- .eslintrc.json
   |- .gitignore
   |- Dockerfile
