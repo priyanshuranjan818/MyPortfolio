@@ -153,25 +153,28 @@ export const SOCIALS = [
 
 export const PROJECTS = [
   {
-    title: "Modern Next.js 14 Portfolio",
-    description:
-      'Embark on a journey through my professional evolution with the "Modern Next.js Portfolio" - a dynamic showcase of my skills, experiences, and passion for web development. Crafted with precision and powered by Next.js, this portfolio is more than just a static display; it\'s an immersive experience that reflects the cutting edge of modern web technologies.',
-    image: "/projects/project-1.png",
-    link: "https://example.com",
+    title: "DevSecOps CI/CD Pipeline",
+    platform: "GitHub",
+    date: "Jan' 26",
+    image: null, // Add image path later e.g. "/projects/devsecops.png"
+    link: "https://github.com/priyanshuranjan818",
+    bullets: [
+      "Implemented a secure CI/CD pipeline using Jenkins integrated with GitHub, automating build, test, and deployment workflows for an application on AWS EC2 and Kubernetes.",
+      "Integrated static code analysis and dependency vulnerability scanning using SonarQube and OWASP Dependency Check, enabling early detection of code quality issues and security vulnerabilities.",
+      "Performed container image vulnerability scanning using Trivy and enforced security gates within the pipeline, reducing high and critical vulnerabilities by ~40% before deployment.",
+    ],
   },
   {
-    title: "Interactive Cards Portfolio",
-    description:
-      'Step into the extraordinary world of my professional journey through the "Interactive Cards Portfolio" - an innovative and visually captivating platform that redefines the traditional portfolio experience. Ditching the conventional static layout, this portfolio leverages interactive cards to showcase my skills, projects, and personality in an engaging and dynamic manner.',
-    image: "/projects/project-2.png",
-    link: "https://example.com",
-  },
-  {
-    title: "Space Themed Website",
-    description:
-      'Embark on an interstellar journey with my "Space Themed Website", a mesmerizing space-themed website that invites you to explore the cosmic wonders beyond our world. Immerse yourself in an awe-inspiring digital experience that blends cutting-edge design with the mysteries of the universe.',
-    image: "/projects/project-3.png",
-    link: "https://example.com",
+    title: "Notes Application CI/CD Deployment on AWS",
+    platform: "GitHub",
+    date: "Dec' 25",
+    image: null, // Add image path later e.g. "/projects/notes-app.png"
+    link: "https://github.com/priyanshuranjan818",
+    bullets: [
+      "Built and automated a CI/CD pipeline using Jenkins integrated with GitHub, Docker, and Kubernetes to deploy a 3-tier Notes application (Frontend, Backend, Database) on AWS EC2.",
+      "Provisioned and managed cloud infrastructure using Terraform, enabling repeatable and version-controlled EC2 and Kubernetes environment setup.",
+      "Containerized application services using Docker and orchestrated deployments with Kubernetes, reducing manual deployment effort by ~50% while improving scalability and reliability.",
+    ],
   },
 ] as const;
 
