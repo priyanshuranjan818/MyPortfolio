@@ -34,6 +34,13 @@ const certificates = [
     date: null,
     image: null,
   },
+  {
+    title: "Communication in the 21st Century Workplace",
+    issuer: "COURSERA",
+    subtitle: "University of California, Irvine",
+    date: null,
+    image: null,
+  },
 ];
 
 const issuerGradients: Record<string, string> = {
@@ -41,6 +48,7 @@ const issuerGradients: Record<string, string> = {
   LPU: "from-purple-500 to-pink-500",
   IBM: "from-blue-600 to-cyan-500",
   "CSE PATHSHALA": "from-green-500 to-teal-500",
+  COURSERA: "from-sky-400 to-blue-600",
 };
 
 const issuerInitials: Record<string, string> = {
@@ -48,6 +56,7 @@ const issuerInitials: Record<string, string> = {
   LPU: "LPU",
   IBM: "IBM",
   "CSE PATHSHALA": "CS",
+  COURSERA: "Co",
 };
 
 const cardVariants = {
@@ -180,6 +189,9 @@ export const Certificates = () => {
                 <span className={`text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r ${gradient} w-fit`}>
                   {cert.issuer}
                 </span>
+                {"subtitle" in cert && cert.subtitle && (
+                  <span className="text-xs text-gray-500 mt-0.5">{cert.subtitle}</span>
+                )}
               </motion.div>
             </motion.div>
           );
