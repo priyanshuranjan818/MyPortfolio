@@ -168,12 +168,25 @@ export const PROJECTS = [
     title: "Notes Application CI/CD Deployment on AWS",
     platform: "GitHub",
     date: "Dec' 25",
-    image: null, // Add image path later e.g. "/projects/notes-app.png"
+    image: null,
     link: "https://github.com/priyanshuranjan818",
     bullets: [
       "Built and automated a CI/CD pipeline using Jenkins integrated with GitHub, Docker, and Kubernetes to deploy a 3-tier Notes application (Frontend, Backend, Database) on AWS EC2.",
       "Provisioned and managed cloud infrastructure using Terraform, enabling repeatable and version-controlled EC2 and Kubernetes environment setup.",
       "Containerized application services using Docker and orchestrated deployments with Kubernetes, reducing manual deployment effort by ~50% while improving scalability and reliability.",
+    ],
+  },
+  {
+    title: "German Vocabulary Learning App",
+    platform: "Android / Java",
+    date: "Feb' 26",
+    image: null,
+    link: "https://github.com/priyanshuranjan818",
+    bullets: [
+      "Developed a feature-rich vocabulary learning app using Java and Material Design, featuring an automated gender-coded color system (der/die/das) to enhance noun memorization through context-aware visual cues.",
+      "Architected a local SQLite database to implement a custom Spaced Repetition System (SRS) with proficiency-based word levels, optimizing long-term retention via prioritized review cycles.",
+      "Integrated Android's Text-to-Speech (TTS) API for automated pronunciation in both German and English, and implemented gamified streak tracking to increase user engagement and daily learning consistency.",
+      "Developed a reliable CSV import/export utility for backup and restoration, including custom logic to handle multi-line strings, quoted data, and duplicate entry prevention.",
     ],
   },
 ] as const;
@@ -265,5 +278,9 @@ export const NAV_LINKS = [
   {
     title: "Projects",
     link: "#projects",
+  },
+  {
+    title: "Education",
+    link: "#education",
   },
 ] as const;
