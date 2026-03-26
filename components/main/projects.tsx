@@ -5,12 +5,29 @@ import { motion } from "framer-motion";
 import { slideInFromTop } from "@/lib/motion";
 import { PROJECTS } from "@/constants";
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.93 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.15,
+      type: "spring",
+      stiffness: 100,
+      damping: 14,
+    },
+  }),
+};
+
 export const Projects = () => {
   return (
     <section
       id="projects"
       className="flex flex-col items-center justify-center py-20 px-5 relative z-[20]"
     >
+      {/* Animated heading */}
       <motion.h1
         initial="hidden"
         whileInView="visible"
@@ -21,18 +38,42 @@ export const Projects = () => {
         My Projects
       </motion.h1>
 
+      {/* Underline */}
+      <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="h-[2px] w-32 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mb-12"
+      />
+
       <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROJECTS.map((project, index) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative flex flex-col rounded-2xl border border-[#2A0E61] bg-[#0d0d2b] overflow-hidden shadow-lg hover:shadow-[0_0_25px_rgba(112,66,248,0.35)] hover:-translate-y-1 transition-all duration-300 group"
+            variants={cardVariants}
+            whileHover={{ y: -8, transition: { duration: 0.2 } }}
+            className="relative flex flex-col rounded-2xl border border-[#2A0E61] bg-[#0d0d2b] overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(112,66,248,0.4)] transition-shadow duration-300 group"
           >
-            {/* Top gradient line */}
-            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 to-cyan-500 z-10" />
+            {/* Shimmer on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{
+                background: "linear-gradient(105deg, transparent 40%, rgba(112,66,248,0.08) 50%, transparent 60%)",
+              }}
+            />
+
+            {/* Animated top gradient line */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.15 + 0.35 }}
+              className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 to-cyan-500 z-10 origin-left"
+            />
 
             {/* Image / Placeholder */}
             <div className="w-full h-52 bg-[#080820] flex items-center justify-center overflow-hidden relative">
@@ -44,15 +85,20 @@ export const Projects = () => {
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center gap-3 w-full h-full bg-gradient-to-br from-[#10083a] to-[#0a0520]">
-                  {/* Decorative grid lines */}
                   <div className="absolute inset-0 opacity-10"
                     style={{
                       backgroundImage: "linear-gradient(rgba(112,66,248,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(112,66,248,0.3) 1px, transparent 1px)",
-                      backgroundSize: "30px 30px"
+                      backgroundSize: "30px 30px",
                     }}
                   />
-                  <div className="relative z-10 flex flex-col items-center gap-3">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -10 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.15 + 0.4, type: "spring", stiffness: 150 }}
+                    className="relative z-10 flex flex-col items-center gap-3"
+                  >
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-[0_0_20px_rgba(112,66,248,0.5)]">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                       </svg>
@@ -62,7 +108,7 @@ export const Projects = () => {
                         {project.platform}
                       </span>
                     )}
-                  </div>
+                  </motion.div>
                 </div>
               )}
               {"date" in project && project.date && (
@@ -73,14 +119,20 @@ export const Projects = () => {
             </div>
 
             {/* Content */}
-            <div className="flex flex-col gap-3 p-5 flex-1">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
+              className="flex flex-col gap-3 p-5 flex-1"
+            >
               <div className="flex items-start justify-between gap-2">
                 <h2 className="text-lg font-bold text-white leading-snug">{project.title}</h2>
                 <Link
                   href={project.link}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex-shrink-0 text-gray-400 hover:text-white transition"
+                  className="flex-shrink-0 text-gray-400 hover:text-white transition hover:scale-110"
                   title="View on GitHub"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -92,10 +144,17 @@ export const Projects = () => {
               {"bullets" in project && (
                 <ul className="flex flex-col gap-2">
                   {(project.bullets as readonly string[]).map((bullet, i) => (
-                    <li key={i} className="flex items-start gap-2 text-gray-400 text-xs leading-relaxed">
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.35, delay: index * 0.15 + 0.55 + i * 0.08 }}
+                      className="flex items-start gap-2 text-gray-400 text-xs leading-relaxed"
+                    >
                       <span className="mt-1.5 min-w-[5px] h-[5px] rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex-shrink-0" />
                       {bullet}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               )}
@@ -103,7 +162,7 @@ export const Projects = () => {
               {"description" in project && (
                 <p className="text-gray-400 text-sm leading-relaxed">{project.description as string}</p>
               )}
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>
