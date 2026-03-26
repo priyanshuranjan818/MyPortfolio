@@ -12,37 +12,37 @@ const certificates = [
     issuer: "COURSERA",
     subtitle: "University of California, Irvine",
     date: null,
-    image: "/certificates/cert-6.png",
+    image: "/certificates/cert-6.jpeg",
   },
   {
     title: "Computational Theory: Language Principle & Finite Automata Theory",
     issuer: "INFOSYS",
     date: "Aug' 25",
-    image: "/certificates/cert-1.png",
+    image: "/certificates/cert-1.jpg",
   },
   {
     title: "Data Structures and Algorithm",
     issuer: "LPU",
     date: "Dec' 24",
-    image: "/certificates/cert-2.png",
+    image: null,
   },
   {
     title: "Object Oriented Programming",
     issuer: "LPU",
     date: "Dec' 24",
-    image: "/certificates/cert-3.png",
+    image: "/certificates/cert-3.jpg",
   },
   {
     title: "Introduction to Hardware and Operating Systems",
     issuer: "IBM",
     date: "Sep' 24",
-    image: "/certificates/cert-4.png",
+    image: "/certificates/cert-4.jpg",
   },
   {
     title: "Mastering in C: Basic To Beyond",
     issuer: "CSE PATHSHALA",
     date: null,
-    image: "/certificates/cert-5.png",
+    image: "/certificates/cert-5.jpg",
   },
 ];
 
