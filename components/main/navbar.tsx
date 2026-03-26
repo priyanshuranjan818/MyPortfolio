@@ -20,12 +20,12 @@ export const Navbar = () => {
           className="flex items-center"
         >
           <Image
-            src={`${basePath}/logo.png`}
-            alt="Logo"
-            width={70}
-            height={70}
+            src={`${basePath}/profile.png`}
+            alt="Priyanshu Ranjan"
+            width={40}
+            height={40}
             draggable={false}
-            className="cursor-pointer"
+            className="cursor-pointer rounded-full object-cover"
           />
           <div className="hidden md:flex md:selffont-bold ml-[10px] text-gray-300">Priyanshu Ranjan</div>
         </Link>
