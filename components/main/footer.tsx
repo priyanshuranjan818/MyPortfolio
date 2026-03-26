@@ -1,38 +1,56 @@
-import Link from "next/link";
+"use client";
 
-import { FOOTER_DATA } from "@/constants";
+import Link from "next/link";
+import { RxInstagramLogo, RxTwitterLogo, RxLinkedinLogo, RxGithubLogo } from "react-icons/rx";
+
+const SOCIAL_LINKS = [
+  {
+    name: "GitHub",
+    icon: RxGithubLogo,
+    link: "https://github.com/priyanshuranjan818",
+  },
+  {
+    name: "LinkedIn",
+    icon: RxLinkedinLogo,
+    link: "https://www.linkedin.com/in/priyanshu-ranjan-x/",
+  },
+  {
+    name: "Twitter",
+    icon: RxTwitterLogo,
+    link: "https://x.com/Haxx__616",
+  },
+  {
+    name: "Instagram",
+    icon: RxInstagramLogo,
+    link: "https://www.instagram.com/haxx_616/",
+  },
+];
 
 export const Footer = () => {
   return (
-    <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px]">
-      <div className="w-full flex flex-col items-center justify-center m-auto">
-        <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
-          {FOOTER_DATA.map((column) => (
-            <div
-              key={column.title}
-              className="min-w-[200px] h-auto flex flex-col items-center justify-start"
+    <footer className="w-full bg-transparent border-t border-[#2A0E61]/50 py-8 px-5 relative z-[20]">
+      <div className="max-w-5xl mx-auto flex flex-col items-center gap-6">
+        {/* Social Icons */}
+        <div className="flex items-center gap-6">
+          {SOCIAL_LINKS.map(({ name, icon: Icon, link }) => (
+            <Link
+              key={name}
+              href={link}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={name}
+              className="group flex items-center justify-center w-10 h-10 rounded-full border border-[#2A0E61] bg-[#0d0d2b] text-gray-400 hover:text-white hover:border-purple-500 hover:shadow-[0_0_15px_rgba(112,66,248,0.5)] transition-all duration-300"
             >
-              <h3 className="font-bold text-[16px]">{column.title}</h3>
-              {column.data.map(({ icon: Icon, name, link }) => (
-                <Link
-                  key={`${column.title}-${name}`}
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="flex flex-row items-center my-[15px]"
-                >
-                  {Icon && <Icon />}
-                  <span className="text-[15px] ml-[6px]">{name}</span>
-                </Link>
-              ))}
-            </div>
+              <Icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+            </Link>
           ))}
         </div>
 
-        <div className="mb-[20px] text-[15px] text-center">
-          &copy; Priyanshu Ranjan {new Date().getFullYear()} Inc. All rights reserved.
-        </div>
+        {/* Copyright */}
+        <p className="text-xs text-gray-600">
+          &copy; {new Date().getFullYear()} Priyanshu Ranjan. All rights reserved.
+        </p>
       </div>
-    </div>
+    </footer>
   );
 };
