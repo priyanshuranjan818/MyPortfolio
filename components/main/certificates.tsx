@@ -59,7 +59,7 @@ const cardVariants = {
     transition: {
       duration: 0.55,
       delay: i * 0.1,
-      type: "spring",
+      type: "spring" as const,
       stiffness: 110,
       damping: 14,
     },

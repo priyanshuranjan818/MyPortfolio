@@ -26,7 +26,7 @@ const cardVariants = {
     transition: {
       duration: 0.6,
       delay: i * 0.15,
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 15,
     },
@@ -99,7 +99,7 @@ export const Experience = () => {
                 initial={{ scale: 0, rotate: -10 }}
                 whileInView={{ scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 + 0.4, type: "spring", stiffness: 150 }}
+                transition={{ duration: 0.5, delay: index * 0.15 + 0.4, type: "spring" as const, stiffness: 150 }}
                 className="relative z-10 flex flex-col items-center gap-3 text-center px-4"
               >
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-[0_0_20px_rgba(112,66,248,0.5)]">
