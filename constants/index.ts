@@ -157,7 +157,7 @@ export const PROJECTS = [
     platform: "Android / Java",
     date: "Feb' 26",
     image: "/projects/project-1.png",
-    link: "https://github.com/priyanshuranjan818",
+    link: "https://github.com/priyanshuranjan818/GermanDict",
     bullets: [
       "Developed a feature-rich vocabulary learning app using Java and Material Design, featuring an automated gender-coded color system  to enhance noun memorization through context-aware visual cues.",
       "Architected a local SQLite database to implement a custom Spaced Repetition System (SRS) with proficiency-based word levels, optimizing long-term retention via prioritized review cycles.",
@@ -169,8 +169,8 @@ export const PROJECTS = [
     title: "DevSecOps CI/CD Pipeline",
     platform: "GitHub",
     date: "Jan' 26",
-    image: "/projects/project-2.png", // Add image path later e.g. "/projects/devsecops.png"
-    link: "https://github.com/priyanshuranjan818",
+    image: "/projects/project-2.png",
+    link: "https://github.com/priyanshuranjan818/DevSecOps-Project",
     bullets: [
       "Implemented a secure CI/CD pipeline using Jenkins integrated with GitHub, automating build, test, and deployment workflows for an application on AWS EC2 and Kubernetes.",
       "Integrated static code analysis and dependency vulnerability scanning using SonarQube and OWASP Dependency Check, enabling early detection of code quality issues and security vulnerabilities.",
@@ -183,7 +183,7 @@ export const PROJECTS = [
     platform: "GitHub",
     date: "Dec' 25",
     image: "/projects/project-3.png",
-    link: "https://github.com/priyanshuranjan818",
+    link: "https://github.com/priyanshuranjan818/notes-web-app",
     bullets: [
       "Built and automated a CI/CD pipeline using Jenkins integrated with GitHub, Docker, and Kubernetes to deploy a 3-tier Notes application (Frontend, Backend, Database) on AWS EC2.",
       "Provisioned and managed cloud infrastructure using Terraform, enabling repeatable and version-controlled EC2 and Kubernetes environment setup.",
