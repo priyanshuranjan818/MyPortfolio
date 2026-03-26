@@ -78,53 +78,23 @@ export const Projects = () => {
               className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 to-cyan-500 z-10 origin-left"
             />
 
-            {/* Image / Placeholder */}
-            <div className="w-full h-52 bg-[#080820] flex items-center justify-center overflow-hidden relative">
-              {project.image ? (
-                <img
-                  src={`${basePath}${project.image}`}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              ) : (
-                <div className="flex flex-col items-center justify-center gap-3 w-full h-full bg-gradient-to-br from-[#10083a] to-[#0a0520]">
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: "linear-gradient(rgba(112,66,248,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(112,66,248,0.3) 1px, transparent 1px)",
-                      backgroundSize: "30px 30px",
-                    }}
-                  />
-                  <motion.div
-                    initial={{ scale: 0, rotate: -10 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.15 + 0.4, type: "spring" as const, stiffness: 150 }}
-                    className="relative z-10 flex flex-col items-center gap-3"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-[0_0_20px_rgba(112,66,248,0.5)]">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                      </svg>
-                    </div>
-                    <span className="text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 uppercase tracking-widest">
-                      {project.platform}
-                    </span>
-                  </motion.div>
-                </div>
-              )}
+            {/* Image */}
+            <div className="w-full h-52 bg-[#080820] overflow-hidden relative">
+              <img
+                src={`${basePath}${project.image}`}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
 
-              {/* Date badge — always shown */}
+              {/* Platform badge — bottom left */}
+              <span className="absolute bottom-3 left-3 text-xs font-semibold text-white border border-[#7042f88b] bg-[#0d0d2b]/80 px-2 py-0.5 rounded-full backdrop-blur-sm">
+                {project.platform}
+              </span>
+
+              {/* Date badge — bottom right */}
               {project.date && (
                 <span className="absolute bottom-3 right-3 text-xs text-gray-300 border border-[#7042f88b] bg-[#0d0d2b]/80 px-2 py-0.5 rounded-full backdrop-blur-sm">
                   {project.date}
-                </span>
-              )}
-
-              {/* Platform badge on top of image */}
-              {project.image && (
-                <span className="absolute bottom-3 left-3 text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 border border-[#7042f88b] bg-[#0d0d2b]/80 px-2 py-0.5 rounded-full backdrop-blur-sm">
-                  {project.platform}
                 </span>
               )}
             </div>
