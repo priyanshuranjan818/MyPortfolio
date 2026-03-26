@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideInFromTop } from "@/lib/motion";
 import { PROJECTS } from "@/constants";
@@ -80,10 +81,11 @@ export const Projects = () => {
 
             {/* Image */}
             <div className="w-full h-52 bg-[#080820] overflow-hidden relative">
-              <img
+              <Image
                 src={`${basePath}${project.image}`}
                 alt={project.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
 
               {/* Platform badge — bottom left */}
