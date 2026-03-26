@@ -1,45 +1,48 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideInFromTop } from "@/lib/motion";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const certificates = [
-  {
-    title: "Computational Theory: Language Principle & Finite Automata Theory",
-    issuer: "INFOSYS",
-    date: "Aug' 25",
-    image: null,
-  },
-  {
-    title: "Data Structures and Algorithm",
-    issuer: "LPU",
-    date: "Dec' 24",
-    image: null,
-  },
-  {
-    title: "Object Oriented Programming",
-    issuer: "LPU",
-    date: "Dec' 24",
-    image: null,
-  },
-  {
-    title: "Introduction to Hardware and Operating Systems",
-    issuer: "IBM",
-    date: "Sep' 24",
-    image: null,
-  },
-  {
-    title: "Mastering in C: Basic To Beyond",
-    issuer: "CSE PATHSHALA",
-    date: null,
-    image: null,
-  },
   {
     title: "Communication in the 21st Century Workplace",
     issuer: "COURSERA",
     subtitle: "University of California, Irvine",
     date: null,
-    image: null,
+    image: "/certificates/cert-6.png",
+  },
+  {
+    title: "Computational Theory: Language Principle & Finite Automata Theory",
+    issuer: "INFOSYS",
+    date: "Aug' 25",
+    image: "/certificates/cert-1.png",
+  },
+  {
+    title: "Data Structures and Algorithm",
+    issuer: "LPU",
+    date: "Dec' 24",
+    image: "/certificates/cert-2.png",
+  },
+  {
+    title: "Object Oriented Programming",
+    issuer: "LPU",
+    date: "Dec' 24",
+    image: "/certificates/cert-3.png",
+  },
+  {
+    title: "Introduction to Hardware and Operating Systems",
+    issuer: "IBM",
+    date: "Sep' 24",
+    image: "/certificates/cert-4.png",
+  },
+  {
+    title: "Mastering in C: Basic To Beyond",
+    issuer: "CSE PATHSHALA",
+    date: null,
+    image: "/certificates/cert-5.png",
   },
 ];
 
@@ -136,7 +139,7 @@ export const Certificates = () => {
               {/* Image / Visual area */}
               <div className="w-full h-52 bg-[#080820] flex items-center justify-center overflow-hidden relative">
                 {cert.image ? (
-                  <img src={cert.image} alt={cert.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image src={`${basePath}${cert.image}`} alt={cert.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <>
                     <div className="absolute inset-0 opacity-10"
@@ -149,7 +152,7 @@ export const Certificates = () => {
                       initial={{ scale: 0, rotate: -15 }}
                       whileInView={{ scale: 1, rotate: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 + 0.4, type: "spring", stiffness: 150 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 + 0.4, type: "spring" as const, stiffness: 150 }}
                       className="relative z-10 flex flex-col items-center gap-3"
                     >
                       <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center shadow-[0_0_20px_rgba(112,66,248,0.4)]`}>
