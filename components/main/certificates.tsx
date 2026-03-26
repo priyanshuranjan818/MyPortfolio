@@ -24,7 +24,7 @@ const certificates = [
     title: "Data Structures and Algorithm",
     issuer: "LPU",
     date: "Dec' 24",
-    image: null,
+    image: "/certificates/cert-2.jpg",
   },
   {
     title: "Object Oriented Programming",
