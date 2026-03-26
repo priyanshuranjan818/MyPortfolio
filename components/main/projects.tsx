@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { slideInFromTop } from "@/lib/motion";
 import { PROJECTS } from "@/constants";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const cardVariants = {
   hidden: { opacity: 0, y: 60, scale: 0.93 },
   visible: (i: number) => ({
@@ -27,7 +29,7 @@ export const Projects = () => {
       id="projects"
       className="flex flex-col items-center justify-center py-20 px-5 relative z-[20]"
     >
-      {/* Animated heading */}
+      {/* Heading */}
       <motion.h1
         initial="hidden"
         whileInView="visible"
@@ -60,7 +62,8 @@ export const Projects = () => {
             className="relative flex flex-col rounded-2xl border border-[#2A0E61] bg-[#0d0d2b] overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(112,66,248,0.4)] transition-shadow duration-300 group"
           >
             {/* Shimmer on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{
                 background: "linear-gradient(105deg, transparent 40%, rgba(112,66,248,0.08) 50%, transparent 60%)",
               }}
@@ -77,15 +80,16 @@ export const Projects = () => {
 
             {/* Image / Placeholder */}
             <div className="w-full h-52 bg-[#080820] flex items-center justify-center overflow-hidden relative">
-              {"image" in project && project.image ? (
+              {project.image ? (
                 <img
-                  src={project.image as string}
+                  src={`${basePath}${project.image}`}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center gap-3 w-full h-full bg-gradient-to-br from-[#10083a] to-[#0a0520]">
-                  <div className="absolute inset-0 opacity-10"
+                  <div
+                    className="absolute inset-0 opacity-10"
                     style={{
                       backgroundImage: "linear-gradient(rgba(112,66,248,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(112,66,248,0.3) 1px, transparent 1px)",
                       backgroundSize: "30px 30px",
@@ -103,17 +107,24 @@ export const Projects = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                       </svg>
                     </div>
-                    {"platform" in project && (
-                      <span className="text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 uppercase tracking-widest">
-                        {project.platform}
-                      </span>
-                    )}
+                    <span className="text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 uppercase tracking-widest">
+                      {project.platform}
+                    </span>
                   </motion.div>
                 </div>
               )}
-              {"date" in project && project.date && (
+
+              {/* Date badge — always shown */}
+              {project.date && (
                 <span className="absolute bottom-3 right-3 text-xs text-gray-300 border border-[#7042f88b] bg-[#0d0d2b]/80 px-2 py-0.5 rounded-full backdrop-blur-sm">
                   {project.date}
+                </span>
+              )}
+
+              {/* Platform badge on top of image */}
+              {project.image && (
+                <span className="absolute bottom-3 left-3 text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 border border-[#7042f88b] bg-[#0d0d2b]/80 px-2 py-0.5 rounded-full backdrop-blur-sm">
+                  {project.platform}
                 </span>
               )}
             </div>
@@ -141,27 +152,21 @@ export const Projects = () => {
                 </Link>
               </div>
 
-              {"bullets" in project && (
-                <ul className="flex flex-col gap-2">
-                  {(project.bullets as readonly string[]).map((bullet, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.35, delay: index * 0.15 + 0.55 + i * 0.08 }}
-                      className="flex items-start gap-2 text-gray-400 text-xs leading-relaxed"
-                    >
-                      <span className="mt-1.5 min-w-[5px] h-[5px] rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex-shrink-0" />
-                      {bullet}
-                    </motion.li>
-                  ))}
-                </ul>
-              )}
-
-              {"description" in project && (
-                <p className="text-gray-400 text-sm leading-relaxed">{project.description as string}</p>
-              )}
+              <ul className="flex flex-col gap-2">
+                {project.bullets.map((bullet, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: index * 0.15 + 0.55 + i * 0.08 }}
+                    className="flex items-start gap-2 text-gray-400 text-xs leading-relaxed"
+                  >
+                    <span className="mt-1.5 min-w-[5px] h-[5px] rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex-shrink-0" />
+                    {bullet}
+                  </motion.li>
+                ))}
+              </ul>
             </motion.div>
           </motion.div>
         ))}

@@ -59,7 +59,7 @@ export const Experience = () => {
         className="h-[2px] w-32 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mb-12"
       />
 
-      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="w-full max-w-6xl flex flex-wrap justify-center gap-6">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
@@ -69,7 +69,7 @@ export const Experience = () => {
             viewport={{ once: true }}
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            className="relative flex flex-col rounded-2xl border border-[#2A0E61] bg-[#0d0d2b] overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(112,66,248,0.4)] transition-shadow duration-300 group"
+            className="relative flex flex-col rounded-2xl border border-[#2A0E61] bg-[#0d0d2b] overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(112,66,248,0.4)] transition-shadow duration-300 group w-full max-w-sm"
           >
             {/* Shimmer effect on hover */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
