@@ -95,7 +95,7 @@ export const MONITORING_SCRIPTING = [
 export const SOFT_SKILLS = [
   { name: "Problem Solving", icon: "🧩" },
   { name: "Team Collaboration", icon: "🤝" },
-  { name: "Agile & Scrum", icon: "🔄" },
+  { name: "Effective Communication", icon: "💬" },
   { name: "Leadership", icon: "👑" },
 ] as const;
 
