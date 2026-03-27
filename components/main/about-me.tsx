@@ -114,12 +114,13 @@ export const AboutMe = () => {
               Get In Touch
             </a>
             <a
-              href="#"
+              href={`${basePath}/CV2.pdf`}
               target="_blank"
               rel="noopener noreferrer"
+              download="Priyanshu_Ranjan_CV.pdf"
               className="py-2.5 px-6 text-center text-white cursor-pointer rounded-lg border border-[#7042f88b] hover:bg-[#7042f84b] transition-all duration-300 hover:scale-105"
             >
-              View CV
+              Download CV
             </a>
           </motion.div>
         </motion.div>
