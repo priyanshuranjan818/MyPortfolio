@@ -20,12 +20,7 @@ export const CLOUD_PLATFORMS = [
     width: 70,
     height: 70,
   },
-  {
-    skill_name: "GCP",
-    image: "gcp.svg",
-    width: 70,
-    height: 70,
-  },
+
 ] as const;
 
 export const DEVOPS_TOOLS = [
@@ -53,45 +48,18 @@ export const DEVOPS_TOOLS = [
     width: 70,
     height: 70,
   },
-  {
-    skill_name: "Ansible",
-    image: "ansible.svg",
-    width: 70,
-    height: 70,
-  },
+
   {
     skill_name: "GitHub Actions",
     image: "githubactions.svg",
     width: 70,
     height: 70,
   },
-  {
-    skill_name: "ArgoCD",
-    image: "argocd.svg",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "Helm",
-    image: "helm.svg",
-    width: 70,
-    height: 70,
-  },
+
 ] as const;
 
 export const MONITORING_SCRIPTING = [
-  {
-    skill_name: "Prometheus",
-    image: "prometheus.svg",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "Grafana",
-    image: "grafana.svg",
-    width: 70,
-    height: 70,
-  },
+
   {
     skill_name: "Linux",
     image: "linux.svg",

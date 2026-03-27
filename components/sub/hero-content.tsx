@@ -51,12 +51,25 @@ export const HeroContent = () => {
           container orchestration, and infrastructure automation. Explore my skills and projects.
         </motion.p>
 
-        <motion.a
-          variants={slideInFromLeft(1)}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-        >
-          Learn more
-        </motion.a>
+        <div className="flex gap-4">
+          <motion.a
+            variants={slideInFromLeft(1)}
+            href="#about-me"
+            className="py-2 px-6 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+          >
+            Learn more
+          </motion.a>
+          
+          <motion.a
+            variants={slideInFromLeft(1)}
+            href={`${basePath}/CV2.pdf`}
+            download="Priyanshu_Ranjan_CV.pdf"
+            target="_blank"
+            className="py-2 px-6 border border-[#7042f88b] bg-transparent hover:bg-[#7042f83b] transition-colors text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+          >
+            Download CV
+          </motion.a>
+        </div>
       </div>
 
       <motion.div
